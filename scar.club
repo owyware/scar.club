@@ -1,10 +1,7 @@
-
--- / Locals
 local Workspace = game:GetService("Workspace")
 local Player = game:GetService("Players").LocalPlayer
 local Mouse = Player:GetMouse()
 
--- / Services
 local UserInputService = game:GetService("UserInputService")
 local TextService = game:GetService("TextService")
 local TweenService = game:GetService("TweenService")
@@ -13,7 +10,6 @@ local CoreGuiService = game:GetService("CoreGui")
 local ContentService = game:GetService("ContentProvider")
 local TeleportService = game:GetService("TeleportService")
 
--- / Tween table & function
 local TweenTable = {
     Default = {
         TweenInfo.new(0.17, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false, 0)
@@ -31,7 +27,6 @@ local CreateTween = function(name, speed, style, direction, loop, reverse, delay
     TweenTable[name] = TweenInfo.new(speed, style, direction, loop, reverse, delay)
 end
 
--- / Dragging
 local drag = function(obj, latency)
     obj = obj
     latency = latency or 0.06
@@ -124,39 +119,39 @@ function library:Copy(input) -- only works with synapse
 end
 
 function library:GetDay(type)
-    if type == "word" then -- day in a full word
+    if type == "word" then
         return os.date("%A")
-    elseif type == "short" then -- day in a shortened word
+    elseif type == "short" then
         return os.date("%a")
-    elseif type == "month" then -- day of the month in digits
+    elseif type == "month" then
         return os.date("%d")
-    elseif type == "year" then -- day of the year in digits
+    elseif type == "year" then
         return os.date("%j")
     end
 end
 
 function library:GetTime(type)
-    if type == "24h" then -- time using a 24 hour clock
+    if type == "24h" then
         return os.date("%H")
-    elseif type == "12h" then -- time using a 12 hour clock
+    elseif type == "12h" then
         return os.date("%I")
-    elseif type == "minute" then -- time in minutes
+    elseif type == "minute" then
         return os.date("%M")
-    elseif type == "half" then -- what part of the day it is (AM or PM)
+    elseif type == "half" then
         return os.date("%p")
-    elseif type == "second" then -- time in seconds
+    elseif type == "second" then
         return os.date("%S")
-    elseif type == "full" then -- full time
+    elseif type == "full" then
         return os.date("%X")
-    elseif type == "ISO" then -- ISO / UTC ( 1min = 1, 1hour = 100)
+    elseif type == "ISO" then
         return os.date("%z")
-    elseif type == "zone" then -- time zone
+    elseif type == "zone" then
         return os.date("%Z") 
     end
 end
 
 function library:GetMonth(type)
-    if type == "word" then -- full month name
+    if type == "word" then
         return os.date("%B")
     elseif type == "short" then -- month in shortened word
         return os.date("%b")
